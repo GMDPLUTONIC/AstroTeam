@@ -1,0 +1,80 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="A next-generation mod menu for Geometry Dash.">
+		<meta name="keywords" content="geometry dash,mod menu,eclipse menu">
+		<meta name="robots" content="index, follow">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="language" content="English">
+		<title>Team Pluton</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+
+		<meta name="title" content="Eclipse Menu">
+		<meta name="theme-color" content="#513fca">
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://team.pluton/" />
+		<meta property="og:title" content="Eclipse Menu" />
+		<meta property="og:description" content="An Actually Good GD Team." />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://team.pluton" />
+		<meta property="twitter:title" content="Eclipse Menu" />
+		<meta property="twitter:description" content="A next-generation mod menu for Geometry Dash." />
+	</head>
+	<body>
+		<Header />
+		<slot />
+		<Footer />
+		<script type="module">
+			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+				anchor.addEventListener('click', function (e) {
+					e.preventDefault();
+
+					document.querySelector(this.getAttribute('href')).scrollIntoView({
+						behavior: 'smooth'
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
+
+<style>
+	:root {
+		--background-1: #00072D;
+		--background-2: #00153F;
+	}
+
+	html, body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		font-family: 'Lexend Deca', sans-serif;
+        font-weight: 400;
+	}
+	
+	html {
+		background: linear-gradient(90deg, var(--background-1) 0%, var(--background-2) 100%);
+		color: white;
+	}
+
+	body {
+		z-index: 0;
+	}
+
+</style>

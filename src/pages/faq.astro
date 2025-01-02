@@ -1,0 +1,85 @@
+---
+import CellButton from '../components/CellButton.astro';
+import Container from '../components/Container.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+    <Container title="FAQ">
+
+        <h3>Is this free?</h3>
+        <p>
+            Yes, Eclipse Menu is completely free to use. <br/>
+            If you'd like to support the developers, consider donating on our
+            <a href="https://ko-fi.com/eclipsemenu" target="_blank">Ko-fi page</a>.
+        </p>
+
+        <hr/>
+
+        <h3>My game crashes, help!</h3>
+        <p>
+            In case of a mod crash, please report the issue on our
+            <a href="https://discord.gg/KqZfKrFQbP" target="_blank">Discord server</a>.
+        </p>
+
+        <hr/>
+
+        <h3>Where can I find saved macros/replays?</h3>
+        <p>
+            You can find them in the
+            <kbd>"game save directory"</kbd> &gt; <kbd>geode</kbd> &gt; <kbd>mods</kbd> &gt; <kbd>eclipse.eclipse-menu</kbd>.
+            <br/>
+        </p>
+        <p>
+            You can use the "Save folder" button in "Shortcuts" tab to quickly open the directory.
+        </p>
+        <p>
+            <b>For Windows users:</b> <br/>
+            You can press Win+R to bring up the "Run" box, and then enter <br/>
+            <kbd>%LocalAppData%/GeometryDash/geode/mods/eclipse.eclipse-menu</kbd>.
+        </p>
+        <p>
+            <b>For macOS users:</b> <br/>
+            Mod save directory should be located at <br/>
+            <kbd>~/Library/Application Support/GeometryDash/geode/mods/eclipse.eclipse-menu</kbd>.
+        </p>
+
+        <hr/>
+
+        <h3>How do I add keybinds to hacks?</h3>
+        <p>
+            Either right click or shift click the hack, and press "Add keybind" in the popup.
+            Set the key in the "Keybinds" tab after that.
+        </p>
+
+    </Container>
+</Layout>
+
+<style>
+    h3 {
+        margin-top: 1rem;
+    }
+
+    a {
+        color: #aaf;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    hr {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        border: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    kbd {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0.1rem 0.3rem;
+        border-radius: 0.2rem;
+        word-wrap: break-word;
+    }
+</style>

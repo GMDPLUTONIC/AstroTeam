@@ -1,0 +1,145 @@
+---
+import CellButton from '../components/CellButton.astro';
+import Container from '../components/Container.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+    <div class="content">
+        <div class="container py-6">
+            <div class="row">
+                <div>
+                    <h1 class="title">Team Pluton</h1>
+                    <p class="sub-title">
+                        One Of The <span style="--col1:#35D377;--col2:#3affb3;" class="color-grad">Best GD Teams</span> Out There<br/>
+                        With<span style="--col1:#00ff11;--col2:#10fa91;" class="color-grad"> Actual Rating Standards For Once.</span>
+                    </p>
+                    <p>
+                        <CellButton href="#how-to-install"
+                            text="Install" icon="/geode.svg"
+                            gradBegin="#1C982A" gradEnd="#136A1D"/>
+                    </p>
+                </div>
+                <div>
+                    <img src="/eclipse.png" alt="Eclipse Menu" height="200px" />
+                </div>
+            </div>
+        </div>
+
+        <!-- <Container id="about">
+            About
+        </Container> -->
+
+        <Container id="how-to-join" title="How to Install" titleColor="#AAFFAA">
+            <h3>Step 1: Install Geode</h3>
+            <p>
+                Geode is a mod loader for Geometry Dash. It is required to run Eclipse Menu.
+                Click the button below to install Geode if you haven't already.
+                <CellButton href="https://geode-sdk.org/install"
+                    text="Install Geode" icon="/geode.svg"
+                    gradBegin="#00000000" gradEnd="#00000000"/>
+            </p>
+
+            <hr/>
+
+            <h3>Step 2: Get Eclipse Menu</h3>
+            <p>
+                Launch the game and click the
+                <span class="color-grad" style="--col1:#EEFF00;--col2:#F2FA10;"><b>Geode</b></span> button in main menu. <br/>
+                Navigate to the <span class="color-grad" style="--col1:#35D377;--col2:#3affb3;"><b>Download</b></span> tab
+                and search for <span class="color-grad" style="--col1:#b691e2;--col2:#d3bcf0;"><b>Eclipse</b></span>.
+            </p>
+
+            <img src="/screenshots/install-1.png" alt="Geode 'Download' tab" class="image-fit"/>
+
+            <p>Click "Get" button and press "Install" button in the new dialog.</p>
+
+            <img src="/screenshots/install-2.png" alt="Mod installation popup" class="image-fit"/>
+
+            <p>After the installation, you will be prompted to restart the game.</p>
+
+            <hr/>
+
+            <h3>Step 3: Open the menu</h3>
+            <p>Press <kbd>Tab</kbd> on your keyboard to open the menu.</p>
+
+            <img src="/screenshots/install-3.png" alt="Eclipse Menu" class="image-fit"/>
+        </Container>
+    </div>
+</Layout>
+
+<style>
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .py-6 {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    @media (max-width: 800px) {
+        .row {
+            flex-direction: column-reverse;
+        }
+        .container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            text-align: center;
+        }
+    }
+
+    .title {
+        font-size: 4rem;
+        margin: 0;
+    }
+
+    .sub-title {
+        font-size: 1.7rem;
+        margin: 0;
+    }
+    
+    @media (max-width: 600px) {
+        .title {
+            font-size: 3rem;
+        }
+        .sub-title {
+            font-size: 1.2rem;
+        }
+    }
+
+    .color-grad {
+        background: linear-gradient(90deg, var(--col1) 0%, var(--col2) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .image-fit {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    kbd {
+        background: rgba(155, 155, 155, 0.3);
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.2rem;
+        font-size: 0.9rem;
+    }
+
+    hr {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        border: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+    }
+</style>

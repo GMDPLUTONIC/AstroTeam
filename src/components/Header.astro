@@ -1,0 +1,163 @@
+---
+const PAGES = [
+    { title: 'Home', href: '/' },
+    { title: 'FAQ', href: '/faq' },
+    // { title: 'Page 3', href: '/page3'},
+]
+
+const LINKS = [
+    { title: 'Discord', href: 'https://discord.gg/KqZfKrFQbP', icon: '/discord.svg' }
+]
+---
+
+<header>
+    <a href="/" class="main-icon">
+        <img src="/icon.png" alt="Eclipse Menu" height="36px" />
+    </a>
+    <a href="javascript:void(0)" class="open-menu">
+        <img src="/menu.svg" alt="Menu" height="32px" />
+    </a>
+    <nav class="menu">
+        {PAGES.map(page => (
+            <a href={page.href}>{page.title}</a>
+        ))}
+    </nav>
+    <div class="media-links">
+        {LINKS.map(link => (
+            <a href={link.href} class="media-link">
+                <img src={link.icon} alt={link.title} height="32px" />
+            </a>
+        ))}
+    </div>
+</header>
+<div class="mobile-menu collapsed">
+    <nav class="menu">
+        <ul>
+            {PAGES.map(page => (
+                <a href={page.href}><li>{page.title}</li></a>
+            ))}
+        </ul>
+    </nav>
+</div>
+<script type="module">
+    const openMenu = document.querySelector('.open-menu');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    openMenu.addEventListener('click', () => {
+        mobileMenu.classList.toggle('collapsed');
+    });
+</script>
+
+<style define:vars={{ pageCount: PAGES.length }}>
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.7rem;
+        background: rgba(0, 0, 0, 0.3);
+        color: white;
+        height: 40px;
+    }
+    
+    header a {
+        color: white;
+        opacity: 0.75;
+        text-decoration: none;
+    }
+    
+    header a:hover {
+        text-decoration: underline;
+    }
+    
+    header nav {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 0.6rem;
+        border-radius: 1.5rem;
+    }
+    
+    header nav a {
+        margin: 0 2rem 0 0;
+    }
+    
+    header nav a:first-child {
+        margin: 0 2rem;
+    }
+
+    header nav a:not(:last-child)::after {
+        content: '';
+        margin: 0 0 0 2rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.5);
+        height: 1rem;
+    }
+
+    header .media-links {
+        display: flex;
+    }
+
+    header .media-link {
+        margin: 0 0 0 1rem;
+        opacity: 1;
+    }
+
+    header .media-link img {
+        color: white;
+    }
+
+    .open-menu, .mobile-menu {
+        display: none;
+    }
+
+    .mobile-menu nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-menu nav li {
+        margin: 0;
+        padding: 0.5rem;
+    }
+
+    .mobile-menu nav a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .mobile-menu nav li:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu {
+        position: absolute;
+        top: calc(40px + 0.7rem * 2);
+        left: 0;
+        width: 100%;
+        height: calc(36px * var(--pageCount));
+        background: rgba(0, 0, 0, 0.75);
+        display: flex;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+        transition: 0.2s;
+    }
+
+    .mobile-menu.collapsed {
+        height: 0;
+    }
+
+    @media (max-width: 800px) {
+        .main-icon {
+            display: none;
+        }
+        .open-menu, .mobile-menu {
+            display: block;
+        }
+        header nav {
+            display: none;
+        }
+    }
+</style>
