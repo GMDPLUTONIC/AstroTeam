@@ -1,8 +1,7 @@
 ---
 const PAGES = [
-    { title: 'Home', href: '/' },
-    { title: 'FAQ', href: '/faq' },
-    // { title: 'Page 3', href: '/page3'},
+    { title: 'Main', href: '/' },
+    { title: 'About', href: '/about' },
 ]
 
 const LINKS = [
@@ -12,12 +11,12 @@ const LINKS = [
 
 <header>
     <a href="/" class="main-icon">
-        <img src="/icon.png" alt="Eclipse Menu" height="36px" />
+        <img src="/public/favicon.jpg" alt="Astro Team" height="48px" />
     </a>
-    <a href="javascript:void(0)" class="open-menu">
-        <img src="/menu.svg" alt="Menu" height="32px" />
+    <a href="javascript:void(0)" class="open-discord">
+        <img src="/public/discord.svg" alt="Discord" height="32px" />
     </a>
-    <nav class="menu">
+    <nav class="discord">
         {PAGES.map(page => (
             <a href={page.href}>{page.title}</a>
         ))}
@@ -30,23 +29,6 @@ const LINKS = [
         ))}
     </div>
 </header>
-<div class="mobile-menu collapsed">
-    <nav class="menu">
-        <ul>
-            {PAGES.map(page => (
-                <a href={page.href}><li>{page.title}</li></a>
-            ))}
-        </ul>
-    </nav>
-</div>
-<script type="module">
-    const openMenu = document.querySelector('.open-menu');
-    const mobileMenu = document.querySelector('.mobile-menu');
-
-    openMenu.addEventListener('click', () => {
-        mobileMenu.classList.toggle('collapsed');
-    });
-</script>
 
 <style define:vars={{ pageCount: PAGES.length }}>
     header {
@@ -107,46 +89,8 @@ const LINKS = [
         color: white;
     }
 
-    .open-menu, .mobile-menu {
+    .open-discord {
         display: none;
-    }
-
-    .mobile-menu nav ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .mobile-menu nav li {
-        margin: 0;
-        padding: 0.5rem;
-    }
-
-    .mobile-menu nav a {
-        color: white;
-        text-decoration: none;
-    }
-
-    .mobile-menu nav li:hover {
-        background: rgba(255, 255, 255, 0.1);
-    }
-
-    .mobile-menu {
-        position: absolute;
-        top: calc(40px + 0.7rem * 2);
-        left: 0;
-        width: 100%;
-        height: calc(36px * var(--pageCount));
-        background: rgba(0, 0, 0, 0.75);
-        display: flex;
-        overflow: hidden;
-        justify-content: center;
-        align-items: center;
-        transition: 0.2s;
-    }
-
-    .mobile-menu.collapsed {
-        height: 0;
     }
 
     @media (max-width: 800px) {

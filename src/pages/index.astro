@@ -1,145 +1,87 @@
 ---
-import CellButton from '../components/CellButton.astro';
-import Container from '../components/Container.astro';
 import Layout from '../layouts/Layout.astro';
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
-    <div class="content">
-        <div class="container py-6">
-            <div class="row">
-                <div>
-                    <h1 class="title">Team Pluton</h1>
-                    <p class="sub-title">
-                        One Of The <span style="--col1:#35D377;--col2:#3affb3;" class="color-grad">Best GD Teams</span> Out There<br/>
-                        With<span style="--col1:#00ff11;--col2:#10fa91;" class="color-grad"> Actual Rating Standards For Once.</span>
-                    </p>
-                    <p>
-                        <CellButton href="#how-to-install"
-                            text="Install" icon="/geode.svg"
-                            gradBegin="#1C982A" gradEnd="#136A1D"/>
-                    </p>
-                </div>
-                <div>
-                    <img src="/eclipse.png" alt="Eclipse Menu" height="200px" />
-                </div>
-            </div>
-        </div>
 
-        <!-- <Container id="about">
-            About
-        </Container> -->
+<h1 align="center">AstroTeam</h1>
 
-        <Container id="how-to-join" title="How to Install" titleColor="#AAFFAA">
-            <h3>Step 1: Install Geode</h3>
-            <p>
-                Geode is a mod loader for Geometry Dash. It is required to run Eclipse Menu.
-                Click the button below to install Geode if you haven't already.
-                <CellButton href="https://geode-sdk.org/install"
-                    text="Install Geode" icon="/geode.svg"
-                    gradBegin="#00000000" gradEnd="#00000000"/>
-            </p>
+<br>
 
-            <hr/>
+<p align="center"><strong><span style="--col1:#3596d3;--col2:#783aff;" class="color-grad">Geometry Dash</span> Creator Team</strong></p>
 
-            <h3>Step 2: Get Eclipse Menu</h3>
-            <p>
-                Launch the game and click the
-                <span class="color-grad" style="--col1:#EEFF00;--col2:#F2FA10;"><b>Geode</b></span> button in main menu. <br/>
-                Navigate to the <span class="color-grad" style="--col1:#35D377;--col2:#3affb3;"><b>Download</b></span> tab
-                and search for <span class="color-grad" style="--col1:#b691e2;--col2:#d3bcf0;"><b>Eclipse</b></span>.
-            </p>
+<br>
 
-            <img src="/screenshots/install-1.png" alt="Geode 'Download' tab" class="image-fit"/>
+<h1 align="center">Projects:</h1>
 
-            <p>Click "Get" button and press "Install" button in the new dialog.</p>
+<fieldset>
 
-            <img src="/screenshots/install-2.png" alt="Mod installation popup" class="image-fit"/>
+    <p align="center"><span style="--col1:#d335d3;--col2:#3ab3ff;" class="color-grad">Warning: These Are Just Previews!</span></p>
 
-            <p>After the installation, you will be prompted to restart the game.</p>
+    <br>
 
-            <hr/>
+    <h1 align="center"><span style="--col1:#35d357;--col2:#d1ff3a;" class="color-grad">1. ToRMEnt</span></h1>
 
-            <h3>Step 3: Open the menu</h3>
-            <p>Press <kbd>Tab</kbd> on your keyboard to open the menu.</p>
+    <img align="center" src="/public/projects/ToRMEnt.png" class="image-fit">
 
-            <img src="/screenshots/install-3.png" alt="Eclipse Menu" class="image-fit"/>
-        </Container>
-    </div>
+    <br>
+
+    <br>
+
+    <br>
+
+    <h1 align="center"><span style="--col1:#35cbd3;--col2:#ff3aeb;" class="color-grad">2. Astral Vortex</span></h1>
+
+    <img align="center" src="/public/projects/AV.png" class="image-fit">
+
+    <br>
+
+    <br>
+
+    <br>
+
+    <h1 align="center"><span style="--col1:#35bbd3;--col2:#3aff75;" class="color-grad">3. Kureiji</span></h1>
+
+    <img align="center" src="/public/projects/Kureiji.png" class="image-fit">
+
+    <br>
+
+    <br>
+
+    <br>
+    
+    <h1 align="center"><span style="--col1:#d33535;--col2:#efff3a;" class="color-grad">4. Flames Through Fire</span></h1>
+    
+    <video controls align="center" src="/public/projects/FTF.mp4" height="312" class="image-fit">
+
+</fieldset>
+
+    <br>
+
+    <br>
+
+    <Footer/>
+
 </Layout>
 
 <style>
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
+.color-grad {
+    background: linear-gradient(90deg, var(--col1) 0%, var(--col2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-    .py-6 {
-        padding-top: 6rem;
-        padding-bottom: 6rem;
-    }
+fieldset {
+    background: linear-gradient(90deg, transparent 0%, #000 100%);
+    border-radius: 12px;
+    box-shadow: rgb(0, 81, 103) 0 0px 20px;
+}
 
-    .row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    @media (max-width: 800px) {
-        .row {
-            flex-direction: column-reverse;
-        }
-        .container {
-            padding-left: 1rem;
-            padding-right: 1rem;
-            text-align: center;
-        }
-    }
-
-    .title {
-        font-size: 4rem;
-        margin: 0;
-    }
-
-    .sub-title {
-        font-size: 1.7rem;
-        margin: 0;
-    }
-    
-    @media (max-width: 600px) {
-        .title {
-            font-size: 3rem;
-        }
-        .sub-title {
-            font-size: 1.2rem;
-        }
-    }
-
-    .color-grad {
-        background: linear-gradient(90deg, var(--col1) 0%, var(--col2) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .image-fit {
+.image-fit {
         width: 100%;
-        height: auto;
+        height: 312px;
         object-fit: contain;
     }
 
-    kbd {
-        background: rgba(155, 155, 155, 0.3);
-        padding: 0.2rem 0.4rem;
-        border-radius: 0.2rem;
-        font-size: 0.9rem;
-    }
-
-    hr {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-        border: 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.25);
-    }
 </style>

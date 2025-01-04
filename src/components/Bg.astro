@@ -1,0 +1,130 @@
+---
+const count = Astro.props.count;
+
+type Star = {
+    x: number;
+    y: number;
+    r: number;
+    dx: number;
+    dy: number;
+    d: number;
+    o: number;
+    f: number;
+};
+
+function random(min: number, max: number) {
+    return Math.random() * (max - min) + min;
+}
+
+function randomInt(min: number, max: number) {
+    return Math.floor(random(min, max));
+}
+
+function isOverlapping(star: Star, stars: Star[]): boolean {
+    const screen = { x: 1920, y: 1080 };
+    return stars.some((other) => {
+        const dx = star.x - other.x;
+        const dy = star.y - other.y;
+        const distance = Math.sqrt(dx * dx * screen.x + dy * dy * screen.y);
+        return distance < (star.r + other.r) * 2;
+    });
+}
+
+function scatterStars(count: number): Star[] {
+    const stars: Star[] = [];
+    let iterations = 0;
+    while (stars.length < count) {
+        const star: Star = {
+            x: random(10, 105),
+            y: random(33, 75),
+            r: random(90, 20),
+            dx: random(-95, 25),
+            dy: random(-25, 15),
+            d: random(2, 7),
+            o: random(0.05, 0.15),
+            f: random(67, 13.5)
+        };
+
+        if (!isOverlapping(star, stars) || iterations > 100) {
+            iterations = 0;
+            stars.push(star);
+        } else {
+            iterations++;
+        }
+    }
+    return stars;
+}
+
+---
+
+<div class="stars-container">
+    {scatterStars(count).map((star, i) => (
+        <div class="star" style={{ 
+            '--x': star.x + 'vw',
+            '--y': star.y + 'vh',
+            '--r': star.r + 'px',
+            '--d': star.d + 's',
+            '--dx': star.dx + 'px',
+            '--dy': star.dy + 'px',
+            '--o': star.o,
+        }} />
+    ))}
+</div>
+
+<style>
+
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--r);
+    height: var(--r);
+    background: rgba(255, 255, 255, var(--o));
+    border-radius: 50%;
+    box-shadow: 0 0 50px 75px rgba(255, 255, 255, var(--o));
+    animation: float var(--d) infinite;
+    animation-timing-function: ease-in-out;
+    animation-delay: calc(var(--d) * -1);
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+    .star {
+        animation: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .star {
+        display: none;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+        background: transparent rgba(0, 72, 255, var(--o));
+        box-shadow: 0 0 50px 75px rgba(0, 72, 255, var(--o));
+    }
+    50% {
+        transform: translate(var(--dx), var(--dy)) scale(1.1);
+        background: transparent rgba(0, 72, 255);
+        box-shadow: 0 0 50px 75px rgba(0, 72, 255, 0.1);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+        background: transparent rgba(0, 72, 255, var(--o));
+        box-shadow: 0 0 50px 75px rgba(0, 72, 255, var(--o));
+    }
+}
+
+</style>
