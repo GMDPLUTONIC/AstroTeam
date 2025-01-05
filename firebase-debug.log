@@ -1,0 +1,27 @@
+[debug] [2025-01-05T02:28:39.689Z] ----------------------------------------------------------------------
+[debug] [2025-01-05T02:28:39.692Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\TOCRo\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-01-05T02:28:39.693Z] CLI Version:   13.29.1
+[debug] [2025-01-05T02:28:39.693Z] Platform:      win32
+[debug] [2025-01-05T02:28:39.693Z] Node Version:  v20.17.0
+[debug] [2025-01-05T02:28:39.693Z] Time:          Sat Jan 04 2025 20:28:39 GMT-0600 (Central Standard Time)
+[debug] [2025-01-05T02:28:39.693Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-01-05T02:28:39.768Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-01-05T02:28:39.768Z] > authorizing via signed-in user (elijahsaurusrex0702@gmail.com)
+[debug] [2025-01-05T02:28:39.769Z] [iam] checking project astro-team-site for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-01-05T02:28:39.770Z] Checked if tokens are valid: false, expires at: 1735983347010
+[debug] [2025-01-05T02:28:39.770Z] Checked if tokens are valid: false, expires at: 1735983347010
+[debug] [2025-01-05T02:28:39.770Z] > refreshing access token with scopes: []
+[debug] [2025-01-05T02:28:39.772Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-01-05T02:28:39.772Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-01-05T02:28:40.020Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-01-05T02:28:40.021Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-01-05T02:28:40.031Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/astro-team-site:testIamPermissions [none]
+[debug] [2025-01-05T02:28:40.032Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/astro-team-site:testIamPermissions x-goog-quota-user=projects/astro-team-site
+[debug] [2025-01-05T02:28:40.032Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/astro-team-site:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-01-05T02:28:40.252Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/astro-team-site:testIamPermissions 200
+[debug] [2025-01-05T02:28:40.253Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/astro-team-site:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-01-05T02:28:40.254Z] Checked if tokens are valid: true, expires at: 1736047719021
+[debug] [2025-01-05T02:28:40.254Z] Checked if tokens are valid: true, expires at: 1736047719021
+[debug] [2025-01-05T02:28:40.255Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/astro-team-site [none]
+[debug] [2025-01-05T02:28:40.470Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/astro-team-site 200
